@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout title="Moursy.org">
+    <div class="grid grid-cols-3">
+        <section class="col-span-2 row-span-1 flex flex-col p-12">
+            <h2 class="text-slate-400 italic p-2 text-xl">❝Fools seldom differ❞</h2>
+            <p>
+                Meet Mahmoud Moursy, a very cool person. A very different person, too. I'm not like the <b>other</b> fools.
+            </p>
+        </section>
+        <section class="col-span-1 row-span-1 flex flex-col justify-center p-8 outline outline-8 outline-black">
+            A depository of soon-to-be curiosities.
+            <ul class="list-dashed list-inside py-2">
+                <li><a href="https://github.com/mahmoud-moursy">GitHub</a></li>
+                <li>More to come soon, to be sure...</li>
+            </ul>
+        </section>
+    </div>
+</Layout>
