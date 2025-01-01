@@ -6,7 +6,7 @@ import { getCollection } from 'astro:content';
 const allBloogs = Object.values(import.meta.glob('./posts/*.astro', { eager: true }));
 ---
 
-<Layout>
+<Layout title="Moursy's Bloogs">
     <div class=" grid grid-cols-3">
         <section class="col-span-2 p-12 flex flex-col justify-center outline-black outline-8 outline">
             <h2 class="text-xl font-black">
