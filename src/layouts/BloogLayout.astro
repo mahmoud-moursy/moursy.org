@@ -1,0 +1,51 @@
+---
+import Layout from "./Layout.astro";
+const { title, published } = Astro.props;
+---
+
+<Layout {title}>
+    <article class="flex flex-col">
+        <h2 class="dotted py-0 pl-8 flex items-center w-full flex-1">{title}</h2>
+        <section class="my-2 mx-8 flex w-full *:shadow-md">
+            <time datetime={published} class="p-4 text-sm text-slate-500 border-4 border-slate-500 w-fit">Published on: <b>{published.toLocaleDateString()}</b></time>
+        </section>
+        <section class="p-8 pt-4">
+            <slot />
+        </section>
+    </article>
+
+</Layout>
+
+<style>
+    .dotted::after {
+        content: '//';
+        @apply flex-1 bg-gradient-to-r from-transparent to-orange-500 p-8 text-orange-400;
+    }
+
+    .dotted {
+        background-image: radial-gradient(circle, slategray 5%, transparent 5%);
+        background-size: 10px 10px;
+        background-repeat: repeat;
+        background-origin: padding-box;
+    }
+    
+    :global(h1, h2, h3, h4) {
+        @apply font-black py-4;
+    }
+
+    :global(h1) {
+        @apply text-4xl;
+    }
+
+    :global(h2) {
+        @apply text-3xl;
+    }
+
+    :global(h3) {
+        @apply text-xl;
+    }
+
+    :global(h4) {
+        @apply text-lg;
+    }
+</style>

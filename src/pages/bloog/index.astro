@@ -1,0 +1,27 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+import { getCollection } from 'astro:content';
+
+const allBloogs = Object.values(import.meta.glob('./posts/*.astro', { eager: true }));
+---
+
+<Layout>
+    <div class=" grid grid-cols-3">
+        <section class="col-span-2 p-12 flex flex-col justify-center outline-black outline-8 outline">
+            <h2 class="text-xl font-black">
+                Welcome to my Bloog.
+            </h2>
+
+            <p class="py-8 mt-8">I will try and write on here from time-to-time, as kind of an open diary. Feel free to tune in every once in a while.</p>
+        </section>
+        <section class="col-span-1 outline-black outline-8 p-8 flex flex-col">
+            <h3 class="outline-black outline-8">Most beloved Bloogs.</h3>
+            <ul class="py-8">
+                {allBloogs.slice(0, 3).map(
+                    (bloog) => <li><a href={bloog.url}>{bloog.title}</a></li>
+                )}
+            </ul>
+        </section>
+    </div>
+</Layout>
