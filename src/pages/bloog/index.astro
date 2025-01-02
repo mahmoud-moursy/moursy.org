@@ -1,9 +1,10 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import {getCollection} from "astro:content";
 
-import { getCollection } from 'astro:content';
+const allBloogs = await getCollection('bloogs');
 
-const allBloogs = Object.values(import.meta.glob('./posts/*.astro', { eager: true }));
+console.log(allBloogs)
 ---
 
 <Layout title="Moursy's Bloogs">
@@ -19,7 +20,7 @@ const allBloogs = Object.values(import.meta.glob('./posts/*.astro', { eager: tru
             <h3 class="outline-black outline-8">Most beloved Bloogs.</h3>
             <ul class="py-8">
                 {allBloogs.slice(0, 3).map(
-                    (bloog) => <li><a href={bloog.url}>{bloog.title}</a></li>
+                    (bloog) => <li><a href=`/bloog/posts/${bloog.id}`>{bloog.data.title}</a></li>
                 )}
             </ul>
         </section>

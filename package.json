@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "moursy.org",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/cloudflare": "^12.1.0",
+    "@astrojs/mdx": "^4.0.3",
     "@astrojs/tailwind": "^5.1.4",
     "@fontsource-variable/noto-sans-mono": "^5.1.1",
     "@fontsource/orbit": "^5.1.1",

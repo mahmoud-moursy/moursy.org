@@ -9,8 +9,10 @@ import htmx from 'astro-htmx';
 
 import icon from 'astro-icon';
 
+import mdx from '@astrojs/mdx';
+
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), htmx(), icon()],
+  integrations: [tailwind(), htmx(), icon(), mdx()],
   adapter: cloudflare()
 });
