@@ -2,6 +2,8 @@
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import BloogLayout from "../../../layouts/BloogLayout.astro";
 
+export const prerender = true;
+
 export async function getStaticPaths() {
     const posts = await getCollection('bloogs');
 

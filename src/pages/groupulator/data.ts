@@ -1,9 +1,9 @@
-import mitt from "mitt";
+import { EventEmitter } from 'node:events';
 import type {APIRoute} from "astro";
 
 export const prerender = false;
 
-const emitter = mitt();
+const emitter = new EventEmitter();
 const encoder = new TextEncoder();
 const ALLOWED_CHARACTERS = "0123456789+-/*".split('');
 
@@ -53,7 +53,7 @@ export const GET: APIRoute = async () => {
     let calc_error_callback: () => any;
 
     const customReadable = new ReadableStream({
-        async start(controller) {
+        start(controller) {
             success_callback =  () => {
                 controller.enqueue(encoder.encode(`data: ${state}\n\n`))
             };
@@ -68,16 +68,15 @@ export const GET: APIRoute = async () => {
             emitter.on('calc_error', calc_error_callback);
         },
 
-        async cancel() {
+        cancel() {
             emitter.off('calc_input_received', success_callback);
             emitter.off('calc_error', calc_error_callback);
         }
-    })
+    });
 
     return new Response(customReadable, {
-        // Set the headers for Server-Sent Events (SSE)
         headers: {
-            Connection: 'keep-alive',
+            'Connection': 'keep-alive',
             'Content-Encoding': 'none',
             'Cache-Control': 'no-cache, no-transform',
             'Content-Type': 'text/event-stream; charset=utf-8',
