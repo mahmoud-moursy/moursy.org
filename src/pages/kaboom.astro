@@ -1,0 +1,12 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+export const prerender = false;
+
+let random = Math.ceil(Math.random() * 5);
+---
+
+<BaseLayout title="Shazam!">
+    { random === 1 && (<h1>💥</h1> <h2 class="my-5 font-thin text-slate-500 italic">"... some say the Bazooka can lead one to unexpected pathways."</h2> <a>Try a refresh?</a>) }
+    { random > 1 && <a href="/groupulator">Check out the Groupulator</a>}
+</BaseLayout>

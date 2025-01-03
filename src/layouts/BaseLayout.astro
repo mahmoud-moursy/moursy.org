@@ -1,0 +1,52 @@
+---
+import '@fontsource/orbit';
+import '@fontsource-variable/noto-sans-mono';
+
+const {title} = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+    <meta name="generator" content={Astro.generator}/>
+    <title>{title}</title>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen w-screen overflow-x-clip bg-orange-100 lg:p-8">
+    <slot/>
+</body>
+<script>
+    // include htmx
+    import 'htmx.org';
+</script>
+</html>
+
+<style is:global>
+    html,
+    body {
+        @apply orbit m-0 w-full;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    a {
+        @apply underline decoration-2;
+    }
+
+    ul {
+        list-style: '- ';
+        @apply list-inside ml-4;
+    }
+
+    a {
+        @apply decoration-4;
+    }
+
+    .orbit {
+        font-family: 'Orbit', 'Noto Sans Mono Variable', monospace;
+        font-variant-ligatures: no-common-ligatures;
+    }
+</style>
