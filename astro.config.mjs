@@ -14,11 +14,7 @@ import mdx from '@astrojs/mdx';
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), htmx(), icon(), mdx()],
-  adapter: cloudflare({
-    platformProxy: {
-      enabled: true,
-    },
-  }),
+  adapter: cloudflare(),
   output: 'server',
   vite: {
     ssr: {
