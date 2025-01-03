@@ -1,4 +1,4 @@
-pages_build_output_dir = '/dist'
+pages_build_output_dir = 'dist'
 name = "moursy-blog"
 
 compatibility_flags = [ "nodejs_compat" ]
