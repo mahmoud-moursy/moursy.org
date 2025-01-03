@@ -1,4 +1,2 @@
 pages_build_output_dir = '/dist'
 name = 'moursy-org'
-
-compatibility_flags = [ "nodejs_compat_v2" ]

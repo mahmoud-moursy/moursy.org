@@ -1,9 +1,9 @@
-import {EventEmitter} from "node:events";
+import mitt from "mitt";
 import type {APIRoute} from "astro";
 
 export const prerender = false;
 
-const emitter = new EventEmitter();
+const emitter = mitt();
 const encoder = new TextEncoder();
 const ALLOWED_CHARACTERS = "0123456789+-/*".split('');
 
@@ -69,8 +69,8 @@ export const GET: APIRoute = async () => {
         },
 
         async cancel() {
-            emitter.removeListener('calc_input_received', success_callback);
-            emitter.removeListener('calc_error', calc_error_callback);
+            emitter.off('calc_input_received', success_callback);
+            emitter.off('calc_error', calc_error_callback);
         }
     })
 
