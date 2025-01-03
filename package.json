@@ -15,7 +15,7 @@
     "@fontsource-variable/noto-sans-mono": "^5.1.1",
     "@fontsource/orbit": "^5.1.1",
     "@iconify-json/mdi": "^1.2.2",
-    "astro": "^5.1.1",
+    "astro": "^5.1.2",
     "astro-htmx": "^1.0.6",
     "astro-icon": "^1.1.5",
     "htmx.org": "^2.0.4",
