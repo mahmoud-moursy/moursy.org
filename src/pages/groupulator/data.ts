@@ -1,5 +1,6 @@
 import { EventEmitter } from 'node:events';
 import type {APIRoute} from "astro";
+import { evaluate } from 'mathjs';
 
 export const prerender = false;
 
@@ -29,7 +30,7 @@ export const POST: APIRoute = async ({ request }) => {
             break;
         case "process":
             try {
-                state = eval(state);
+                state = evaluate(state);
             } catch {
                 state = ""
 
