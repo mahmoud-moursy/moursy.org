@@ -30,7 +30,7 @@ export const POST: APIRoute = async ({ request }) => {
             break;
         case "process":
             try {
-                state = evaluate(state);
+                state = evaluate(state).toString();
             } catch {
                 state = ""
 
