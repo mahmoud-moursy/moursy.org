@@ -15,10 +15,14 @@ export default defineConfig({
   output: 'server',
   vite: {
     ssr: {
-      external: ['node:events']
+      external: ['node:events'],
     }
   },
+  server: {
+    port: 8080,
+    host: true
+  },
   adapter: node({
-    mode: 'standalone'
-  })
+    mode: 'standalone',
+  }),
 });

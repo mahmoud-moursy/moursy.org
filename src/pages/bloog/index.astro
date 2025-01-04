@@ -2,9 +2,9 @@
 import Layout from "../../layouts/Layout.astro";
 import {getCollection} from "astro:content";
 
-const allBloogs = await getCollection('bloogs');
+export const prerender = true;
 
-console.log(allBloogs)
+const allBloogs = await getCollection('bloogs');
 ---
 
 <Layout title="Moursy's Bloogs">
