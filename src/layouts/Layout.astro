@@ -4,6 +4,8 @@ import BaseLayout from "./BaseLayout.astro";
 export const prerender = true;
 ---
 <BaseLayout>
+    <!-- Propagate slot up to BaseLayout. -->
+    <slot slot="head" name="head" />
     <main class="flex flex-col border-8 border-black shadow-xl bg-orange-100" id="root">
         <nav class="text-4xl flex flex-row col-span-3 row-span-1 items-center *:p-4 border-black border-b-8 *:border-black h-28 bg-orange-100">
             <a href="/" class="flex items-center gap-4 text-7xl flex-1 h-full">
