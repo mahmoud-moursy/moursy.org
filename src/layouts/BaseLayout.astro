@@ -13,15 +13,12 @@ export const prerender = true;
     <meta name="viewport" content="width=device-width"/>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
     <meta name="generator" content={Astro.generator}/>
+    <slot name="head" />
     <title>{title}</title>
 </head>
-<body class="flex flex-col items-center justify-center min-h-screen w-screen overflow-x-clip bg-orange-100 lg:p-8">
+<body class="flex flex-col items-center justify-center min-h-screen w-screen overflow-x-clip bg-orange-100 lg:p-8" hx-boost="true">
     <slot/>
 </body>
-<script>
-    // include htmx
-    import 'htmx.org';
-</script>
 </html>
 
 <style is:global>

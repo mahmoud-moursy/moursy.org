@@ -29,8 +29,8 @@ export const prerender = true;
 
 
     <div id="calculator" class="w-96 m-4 flex flex-col items-stretch p-4 gap-5 border-4 border-slate-500 shadow-md">
-        <div id="display" class="h-12 p-2 w-full flex items-center bg-slate-200 overflow-ellipsis border-4 border-slate-500" hx-sse="connect:/groupulator/data swap:message">
-            Connecting...
+        <div id="display" class="h-12 p-2 w-full flex items-center bg-slate-200 overflow-ellipsis border-4 border-slate-500">
+            <span hx-ext="sse" sse-connect="/groupulator/data/" sse-swap="message">Connecting...</span>
         </div>
         <div id="buttons" class="grid grid-cols-4 grid-rows-4 h-96 w-full gap-5 *:border-slate-500 *:border-4 *:shadow-md text-2xl font-black">
             <button class="row-start-1" hx-post="/groupulator/data" hx-swap="none" hx-include="this">
@@ -132,13 +132,5 @@ export const prerender = true;
             </button>
         </div>
     </div>
+    <script src="https://unpkg.com/htmx-ext-sse@2.2.2/sse.js"></script>
 </Layout>
-
-<script>
-    const eventSource = new EventSource("/groupulator/data");
-    const display = document.getElementById("display")!;
-
-    eventSource.addEventListener('message', (event) => {
-        display.innerText = event.data;
-    })
-</script>
