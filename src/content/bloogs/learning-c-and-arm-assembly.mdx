@@ -1,0 +1,52 @@
+---
+title: "Learning C and ARM Assembly in 2025?"
+published_on: "2025-01-12"
+---
+
+
+
+<main className="max-w-2xl flex flex-col gap-3 py-3">
+    <h6 className="text-slate-400 font-thin italic py-5">"int main or something like that..."</h6>
+    <p>
+        I've never been one to actually concoct a new years' resolution, but if I had to decide upon one, it would probably to
+        finally learn C and Assembly after all these years.
+    </p>
+    <p>
+        I've started with reading "Effective C, 2nd Edition" (Robert C. Seacord) and "The Art of ARM Assembly" (Randall Hyde). My general
+        opinion on "Effective C" so far is that the book definitely acts as a pretty good reference, and warns against bad practices,
+        but sometimes it will pull out concepts that have not been introduced yet out of thin air. A good example is, the book
+        will often pull out tricks like preprocessor directives (think, `#define`, `#include`), but the chapter on the C
+        preprocessor is near the end of the book. I mean, I already know those things from having skimmed over C before,
+        but from the perspective of a beginner, this is confusing because things like macros look exactly like functions.
+    </p>
+    <p>
+        Additionally, the book lacks any kind of interesting exercises with C to pique your interest. There is a lot of
+        talk about the little details to make portable (as in, cross-compiling) applications and how to make them safe,
+        and how to avoid undefined behaviour, and it is definitely useful because I definitely learned somethings that I didn't
+        know about floating point and integer representation, especially in C, but all this talk of details kind of lacks
+        purpose if there is no practical application. I feel like this book was designed more as a reference over anything else,
+        and if that was the case, then perhaps "Effective C" shouldn't have been the book's title.
+    </p>
+    <p>
+        Other languages that I am used to, like Rust or JavaScript, usually have you import things by way of some
+        special syntax like <span className="text-nowrap">`use file::{function, class, whatever}`</span>, but in C,
+        you use the C preprocessor to append whatever you want to include to the top of your file. It's definitely simpler,
+        but it also raises problems like accidentally shadowing something that I didn't even know I imported.
+    </p>
+    <p>
+        One thing that kind of interests me with C is just how bare-bones it is. I mean, everyone describes it as THE
+        bare-bones language, but I didn't realize that it'd be so barebones to the point of having no namespaces and a
+        completely flat structure. Having to write my own data structures that dynamically allocate memory is kind of
+        fun, but also exposes the weakness of the language. Pointers are dangerous things, and accidentally messing
+        up pointer arithmetic often has invisible consequences that will only come back to bite you hundreds (or worse,
+        thousands) of lines of code later.
+    </p>
+    <p>
+        The experience of learning C overall has been relatively entertaining, but also kind of dry. The language
+        lacks any "exciting" features like tagged enums or pattern matching, you can't even iterate over collections
+        like arrays. At the same time, this experience has provided valuable insight into how the foundation of our
+        tech stack works.
+    </p>
+</main>
+
+https://libcello.org/learn/a-fat-pointer-library
