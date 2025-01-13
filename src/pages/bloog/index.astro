@@ -5,7 +5,7 @@ import {getCollection} from "astro:content";
 export const prerender = true;
 
 const allBloogs = await getCollection('bloogs');
-const belovedBloogs = allBloogs.toSorted((a, b) => {
+const recentBloogs = allBloogs.toSorted((a, b) => {
     let a_date = new Date(a.data.published_on);
     let b_date = new Date(b.data.published_on);
 
@@ -17,6 +17,10 @@ const belovedBloogs = allBloogs.toSorted((a, b) => {
         return 1;
     }
 })
+
+const favorites = ['a-new-year-2025'];
+
+const belovedBloogs = allBloogs.filter(bloog => favorites.includes(bloog.id))
 ---
 
 <Layout title="Moursy's Bloogs">
@@ -37,14 +41,16 @@ const belovedBloogs = allBloogs.toSorted((a, b) => {
         <section class="col-span-1 outline-black outline-8 p-8 flex flex-col">
             <h3 class="font-bold text-lg">Most recent Bloogs.</h3>
             <ul class="py-8">
-                {belovedBloogs.slice(0, 3).map(
+                {recentBloogs.slice(0, 3).map(
                     (bloog) => <li><time datetime={bloog.data.published_on.toString()} class="font-bold text-slate-400">{bloog.data.published_on.toLocaleDateString()}</time> <a href=`/bloog/posts/${bloog.id}`>{bloog.data.title}</a></li>
                 )}
             </ul>
 
-            <h3 class="font-bold text-lg">🌟 Most beloved Bloogs.</h3>
-            <ul>
-
+            <h3 class="font-bold text-lg">❤ Most beloved Bloogs.</h3>
+            <ul class="py-8">
+                {belovedBloogs.map(
+                    (bloog) => <li class="list-['🌟']"> <a href=`/bloog/posts/${bloog.id}`>{bloog.data.title}</a></li>
+                )}
             </ul>
         </section>
     </div>
