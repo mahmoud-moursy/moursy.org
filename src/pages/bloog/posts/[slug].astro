@@ -24,6 +24,6 @@ const { post }: Props = Astro.props;
 const { Content } = await render(post);
 ---
 
-<BloogLayout title={post.data.title} published={post.data.published_on}>
+<BloogLayout title={post.data.title} published={post.data.pubDate}>
     <Content />
 </BloogLayout>

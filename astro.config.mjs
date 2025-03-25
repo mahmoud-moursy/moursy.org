@@ -11,6 +11,7 @@ import node from '@astrojs/node';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://moursy.org',
   integrations: [tailwind(), icon(), mdx()],
   output: 'server',
   vite: {

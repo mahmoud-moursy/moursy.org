@@ -6,8 +6,8 @@ export const prerender = true;
 
 const allBloogs = await getCollection('bloogs');
 const recentBloogs = allBloogs.toSorted((a, b) => {
-    let a_date = new Date(a.data.published_on);
-    let b_date = new Date(b.data.published_on);
+    let a_date = a.data.pubDate;
+    let b_date = b.data.pubDate;
 
     if(a_date > b_date) {
         return -1;
@@ -42,7 +42,7 @@ const belovedBloogs = allBloogs.filter(bloog => favorites.includes(bloog.id))
             <h3 class="font-bold text-lg">Most recent Bloogs.</h3>
             <ul class="py-8">
                 {recentBloogs.slice(0, 3).map(
-                    (bloog) => <li><time datetime={bloog.data.published_on.toString()} class="font-bold text-slate-400">{bloog.data.published_on.toLocaleDateString()}</time> <a href=`/bloog/posts/${bloog.id}`>{bloog.data.title}</a></li>
+                    (bloog) => <li><time datetime={bloog.data.pubDate?.toString()} class="font-bold text-slate-400">{bloog.data.pubDate?.toLocaleDateString()}</time> <a href=`/bloog/posts/${bloog.id}`>{bloog.data.title}</a></li>
                 )}
             </ul>
 

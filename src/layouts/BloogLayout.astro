@@ -1,5 +1,10 @@
 ---
 import Layout from "./Layout.astro";
+export interface Props {
+    title: string,
+    published: Date
+}
+
 const { title, published } = Astro.props;
 
 export const prerender = true;
@@ -9,7 +14,7 @@ export const prerender = true;
     <article class="flex flex-col">
         <h2 class="dotted py-0 pl-8 flex items-center w-full flex-1">{title}</h2>
         <section class="my-2 mx-8 flex w-full *:shadow-md">
-            <time datetime={published} class="p-4 text-sm text-slate-500 border-4 border-slate-500 w-fit">Published on: <b>{published.toLocaleDateString()}</b></time>
+            <time datetime={published.toDateString()} class="p-4 text-sm text-slate-500 border-4 border-slate-500 w-fit">Published on: <b>{published.toLocaleDateString()}</b></time>
         </section>
         <section class="p-8 pt-4">
             <slot />
