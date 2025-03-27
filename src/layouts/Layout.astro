@@ -13,9 +13,9 @@ const { title } = Astro.props;
     <!-- Propagate slot up to BaseLayout. -->
     <slot slot="head" name="head" />
 
-    <main class="flex flex-col border-8 border-black shadow-xl bg-orange-100 max-w-4xl" id="root">
-        <nav class="text-4xl flex flex-row col-span-3 row-span-1 items-center *:p-4 border-black border-b-8 *:border-black h-28 bg-orange-100">
-            <a href="/" class="flex items-center gap-4 text-7xl flex-1 h-full">
+    <main class="flex flex-col flex-wrap border-8 border-black shadow-xl bg-orange-100 w-4xl" id="root">
+        <nav class="text-4xl flex flex-row flex-wrap col-span-3 row-span-1 items-center *:p-4 border-black border-b-8 *:border-black bg-orange-100">
+            <a href="/" class="flex items-center gap-4 text-6xl flex-1 h-full">
                 <div class="inline-grid grid-cols-3 grid-rows-3 w-12 h-12 *:border-black *:border-2 *:w-full *:h-full *:col-span-1">
                     <!-- Lol. -->
                     <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
@@ -24,8 +24,8 @@ const { title } = Astro.props;
                     Moursy.org
                 </h1>
             </a>
-            <a href="/bloog" class="h-full flex items-center border-l-8">Bloog</a>
-            <a href="/kaboom" class="h-full flex items-center border-l-8">Bazooka 💥</a>
+            <a href="/bloog" class="h-28 flex items-center outline outline-8 outline-black mr-2">Bloog</a>
+            <a href="/kaboom" class="h-28 flex items-center outline outline-8 outline-black">Bazooka 💥</a>
         </nav>
         <slot/>
         <footer class="p-4 border-t-8 border-black">
