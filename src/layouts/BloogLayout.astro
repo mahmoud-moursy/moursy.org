@@ -10,7 +10,9 @@ const { title, published } = Astro.props;
 export const prerender = true;
 ---
 
-<Layout {title}>
+<Layout title={title}>
+    <slot name="head" slot="head" />
+
     <article class="flex flex-col">
         <h2 class="dotted py-0 pl-8 flex items-center w-full flex-1">{title}</h2>
         <section class="my-2 mx-8 flex w-full *:shadow-md">
@@ -52,6 +54,14 @@ export const prerender = true;
 
         :global(h4) {
             @apply text-lg;
+        }
+
+        :global(p) {
+            @apply my-3;
+        }
+
+        :global(:target) {
+            @apply bg-orange-300;
         }
     </style>
 </Layout>
